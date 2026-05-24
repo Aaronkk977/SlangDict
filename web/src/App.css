@@ -1,0 +1,260 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: linear-gradient(135deg, #1a1a28 0%, #2d1f3d 50%, #1a2830 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 1.5rem 2.5rem;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, #fff 0%, #ff6b6b 50%, #4ecdc4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.main {
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.search-bar input::placeholder {
+  color: #666;
+}
+
+.year-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.year-filter button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.year-filter button:hover {
+  background: var(--surface-hover);
+  border-color: var(--year);
+}
+
+.year-filter button.active {
+  background: var(--year-soft);
+  border-color: var(--year);
+  color: var(--year);
+  font-weight: 500;
+}
+
+.year-filter .count {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.result-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.result-count strong {
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.slang-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.slang-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: #3a3a48;
+}
+
+.card-top {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.year-badge,
+.rank-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.year-badge {
+  background: var(--year-soft);
+  color: var(--year);
+}
+
+.rank-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.term {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+.field dt {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.field dd {
+  font-size: 0.92rem;
+  color: #d8d8e0;
+}
+
+.field.dialogue dd {
+  background: #12121a;
+  border-left: 3px solid var(--accent);
+  padding: 0.65rem 0.85rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.field.dialogue dd p {
+  margin: 0.15rem 0;
+  font-size: 0.88rem;
+}
+
+.source-link {
+  font-size: 0.8rem;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.empty {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--muted);
+}
+
+.empty button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.empty button:hover {
+  border-color: var(--accent);
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.footer a {
+  margin: 0 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    padding: 2rem 1rem 1.5rem;
+  }
+}
