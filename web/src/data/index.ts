@@ -17,14 +17,18 @@ export function getSlangsByYear(year: number): Slang[] {
   return slangs.filter((s) => s.year === year).sort((a, b) => a.rank - b.rank)
 }
 
-export function searchSlangs(query: string): Slang[] {
+export function searchSlangs(query: string, list: Slang[] = slangs): Slang[] {
   const q = query.trim().toLowerCase()
-  if (!q) return slangs
-  return slangs.filter(
+  if (!q) return list
+  return list.filter(
     (s) =>
       s.term.toLowerCase().includes(q) ||
       s.meaning.includes(q) ||
       s.targetAudience.includes(q) ||
-      s.usageContext.includes(q),
+      s.usageContext.includes(q) ||
+      s.meaningEn?.toLowerCase().includes(q) ||
+      s.targetAudienceEn?.toLowerCase().includes(q) ||
+      s.usageContextEn?.toLowerCase().includes(q) ||
+      s.dialogueExampleEn?.toLowerCase().includes(q),
   )
 }

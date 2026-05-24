@@ -47,15 +47,6 @@ npm run dev
 
 > 若 Build Command 被設成 `vite build` 會出現 **exit 127**，因為 `vite` 裝在 `web/node_modules`，不在根目錄。
 
-### 方式 B：只部署 web 子目錄（最簡單）
-
-| 設定項 | 值 |
-|--------|-----|
-| Framework Preset | **Vite** |
-| Root Directory | `web` |
-| Build Command | `npm run build`（預設） |
-| Output Directory | `dist` |
-
 ### 若出現「No Next.js version detected」
 
 代表 Vercel 誤判成 Next.js，請到 **Project Settings → General**：

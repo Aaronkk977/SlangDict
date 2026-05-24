@@ -184,7 +184,7 @@
   flex: 1;
 }
 
-.field dt {
+.field .field-label {
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--muted);
@@ -193,21 +193,199 @@
   margin-bottom: 0.25rem;
 }
 
-.field dd {
+.field .field-body {
   font-size: 0.92rem;
   color: #d8d8e0;
 }
 
-.field.dialogue dd {
+.text-zh {
+  font-size: 0.92rem;
+  color: #d8d8e0;
+  margin: 0;
+}
+
+.text-en {
+  font-size: 0.85rem;
+  color: #8a8aa0;
+  font-style: italic;
+  margin: 0.35rem 0 0;
+  line-height: 1.5;
+}
+
+.label-en {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: #6a6a80;
+  margin-top: 0.15rem;
+}
+
+/* Term with pinyin */
+.term-with-pinyin {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.35rem;
+  align-items: flex-end;
+  line-height: 1.2;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.char-unit {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 1.1em;
+}
+
+.char-pinyin {
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: var(--year);
+  line-height: 1.2;
+  min-height: 0.95em;
+  white-space: nowrap;
+}
+
+.char-han {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.char-unit-plain .char-pinyin {
+  visibility: hidden;
+}
+
+.dialogue-block {
   background: #12121a;
   border-left: 3px solid var(--accent);
   padding: 0.65rem 0.85rem;
   border-radius: 0 8px 8px 0;
 }
 
-.field.dialogue dd p {
+.dialogue-block .text-zh p,
+.dialogue-block .text-en p {
   margin: 0.15rem 0;
   font-size: 0.88rem;
+}
+
+.submit-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+}
+
+.slang-card.user-submitted {
+  border-color: rgba(255, 193, 7, 0.35);
+}
+
+.remove-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.user-submissions {
+  margin-top: 2.5rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.submission-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+}
+
+.submission-inner {
+  max-width: 560px;
+}
+
+.submission-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.submission-desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.submission-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--year);
+  box-shadow: 0 0 0 3px var(--year-soft);
+}
+
+.submit-btn {
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--accent), #e85555);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+.submit-success {
+  color: var(--year);
+  font-size: 0.9rem;
 }
 
 .source-link {
