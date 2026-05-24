@@ -5,7 +5,7 @@
 }
 
 .header {
-  background: linear-gradient(135deg, #1a1a28 0%, #2d1f3d 50%, #1a2830 100%);
+  background: var(--surface);
   border-bottom: 1px solid var(--border);
   padding: 3rem 1.5rem 2.5rem;
 }
@@ -19,10 +19,7 @@
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 700;
   letter-spacing: 0.02em;
-  background: linear-gradient(90deg, #fff 0%, #ff6b6b 50%, #4ecdc4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--title);
 }
 
 .tagline {
@@ -67,12 +64,12 @@
 
 .search-bar input:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
+  border-color: var(--year);
+  box-shadow: 0 0 0 3px var(--year-soft);
 }
 
 .search-bar input::placeholder {
-  color: #666;
+  color: #a39e94;
 }
 
 .year-filter {
@@ -120,7 +117,7 @@
 }
 
 .result-count strong {
-  color: var(--text);
+  color: var(--title);
 }
 
 .grid {
@@ -143,7 +140,7 @@
 .slang-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
-  border-color: #3a3a48;
+  border-color: #d5cec2;
 }
 
 .card-top {
@@ -175,6 +172,7 @@
   font-weight: 700;
   line-height: 1.3;
   word-break: break-word;
+  color: var(--title);
 }
 
 .fields {
@@ -185,49 +183,54 @@
 }
 
 .field .field-label {
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--title);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.35rem;
+  white-space: nowrap;
+}
+
+.label-sep {
+  font-weight: 400;
   color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.25rem;
+}
+
+.label-en {
+  display: inline;
+  font-size: inherit;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
 }
 
 .field .field-body {
   font-size: 0.92rem;
-  color: #d8d8e0;
+  color: var(--text);
 }
 
 .text-zh {
   font-size: 0.92rem;
-  color: #d8d8e0;
+  color: var(--text);
   margin: 0;
 }
 
 .text-en {
-  font-size: 0.85rem;
-  color: #8a8aa0;
-  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: normal;
   margin: 0.35rem 0 0;
-  line-height: 1.5;
-}
-
-.label-en {
-  display: block;
-  font-size: 0.65rem;
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0.02em;
-  color: #6a6a80;
-  margin-top: 0.15rem;
+  line-height: 1.55;
 }
 
 /* Term with pinyin */
 .term-with-pinyin {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.15rem 0.35rem;
   align-items: flex-end;
+  gap: 0.1rem 0.2rem;
   line-height: 1.2;
   margin: 0.25rem 0 0.5rem;
 }
@@ -251,14 +254,23 @@
 .char-han {
   font-size: 1.35rem;
   font-weight: 700;
+  color: var(--title);
 }
 
-.char-unit-plain .char-pinyin {
-  visibility: hidden;
+.term-latin {
+  display: inline;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--title);
+  letter-spacing: 0;
+  font-variant-east-asian: normal;
+  margin: 0 0.05em;
+  white-space: pre;
 }
 
 .dialogue-block {
-  background: #12121a;
+  background: var(--surface-hover);
   border-left: 3px solid var(--accent);
   padding: 0.65rem 0.85rem;
   border-radius: 0 8px 8px 0;
@@ -275,12 +287,12 @@
   font-weight: 500;
   padding: 0.2rem 0.55rem;
   border-radius: 6px;
-  background: rgba(255, 193, 7, 0.15);
-  color: #ffc107;
+  background: rgba(180, 140, 60, 0.15);
+  color: #9a7b3c;
 }
 
 .slang-card.user-submitted {
-  border-color: rgba(255, 193, 7, 0.35);
+  border-color: rgba(180, 140, 60, 0.4);
 }
 
 .remove-btn {
@@ -307,9 +319,9 @@
 
 .section-title {
   font-size: 1.1rem;
-  color: var(--muted);
+  color: var(--title);
   margin-bottom: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .submission-section {
@@ -325,6 +337,7 @@
 .submission-section h2 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  color: var(--title);
 }
 
 .submission-desc {
@@ -370,7 +383,7 @@
   padding: 0.85rem 1.5rem;
   border: none;
   border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--accent), #e85555);
+  background: var(--accent);
   color: white;
   font-size: 1rem;
   font-weight: 600;
@@ -380,7 +393,7 @@
 }
 
 .submit-btn:hover {
-  opacity: 0.9;
+  opacity: 0.88;
 }
 
 .submit-success {
@@ -421,6 +434,7 @@
   text-align: center;
   font-size: 0.8rem;
   color: var(--muted);
+  background: var(--surface);
 }
 
 .footer a {
@@ -434,5 +448,9 @@
 
   .header {
     padding: 2rem 1rem 1.5rem;
+  }
+
+  .field .field-label {
+    white-space: normal;
   }
 }

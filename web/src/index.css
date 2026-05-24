@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
 
 :root {
-  --bg: #0f0f12;
-  --surface: #1a1a22;
-  --surface-hover: #22222c;
-  --border: #2e2e3a;
-  --text: #f0f0f5;
-  --muted: #9898a8;
-  --accent: #ff6b6b;
-  --accent-soft: rgba(255, 107, 107, 0.15);
-  --year: #4ecdc4;
-  --year-soft: rgba(78, 205, 196, 0.12);
+  --bg: #f5f0e6;
+  --surface: #fffdf8;
+  --surface-hover: #faf6ef;
+  --border: #e3dcd0;
+  --title: #3a3a3a;
+  --text: #4a4540;
+  --muted: #7a746a;
+  --accent: #c45c4a;
+  --accent-soft: rgba(196, 92, 74, 0.12);
+  --year: #5a7d6a;
+  --year-soft: rgba(90, 125, 106, 0.12);
   --radius: 12px;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --shadow: 0 4px 20px rgba(58, 52, 44, 0.08);
 }
 
 * {

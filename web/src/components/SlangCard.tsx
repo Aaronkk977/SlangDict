@@ -1,6 +1,7 @@
 import type { Slang } from '../types/slang'
 import { TermWithPinyin } from './TermWithPinyin'
 import { BilingualField } from './BilingualField'
+import { normalizePunctuation } from '../utils/normalizePunctuation'
 
 interface Props {
   slang: Slang
@@ -8,8 +9,10 @@ interface Props {
 }
 
 export function SlangCard({ slang, onRemove }: Props) {
-  const lines = slang.dialogueExample.split('\n')
-  const enLines = slang.dialogueExampleEn?.split('\n') ?? []
+  const lines = normalizePunctuation(slang.dialogueExample).split('\n')
+  const enLines = slang.dialogueExampleEn
+    ? normalizePunctuation(slang.dialogueExampleEn).split('\n')
+    : []
 
   return (
     <article className={`slang-card${slang.isUserSubmitted ? ' user-submitted' : ''}`}>
@@ -48,6 +51,7 @@ export function SlangCard({ slang, onRemove }: Props) {
         <div className="field dialogue">
           <div className="field-label">
             對話範例
+            <span className="label-sep"> · </span>
             <span className="label-en">Dialogue example</span>
           </div>
           <div className="dialogue-block">
