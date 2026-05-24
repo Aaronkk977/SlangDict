@@ -31,11 +31,39 @@ npm run dev
 
 ## 部署到 Vercel
 
-1. 將專案推送到 GitHub
-2. 在 [Vercel](https://vercel.com) 匯入 repository
-3. 設定 **Root Directory** 為 `web`
-4. Framework Preset 選 **Vite**，其餘使用預設即可
-5. Deploy
+這是 **Vite + React** 專案，不是 Next.js。
+
+### 方式 A：從 repo 根目錄部署（推薦）
+
+根目錄已有 `vercel.json` 與 `package.json`，Vercel 設定如下：
+
+| 設定項 | 值 |
+|--------|-----|
+| Framework Preset | **Other**（不要選 Vite / Next.js） |
+| Root Directory | **留空**（`.`） |
+| Install Command | `cd web && npm install` |
+| Build Command | `cd web && npm run build` |
+| Output Directory | `web/dist` |
+
+> 若 Build Command 被設成 `vite build` 會出現 **exit 127**，因為 `vite` 裝在 `web/node_modules`，不在根目錄。
+
+### 方式 B：只部署 web 子目錄（最簡單）
+
+| 設定項 | 值 |
+|--------|-----|
+| Framework Preset | **Vite** |
+| Root Directory | `web` |
+| Build Command | `npm run build`（預設） |
+| Output Directory | `dist` |
+
+### 若出現「No Next.js version detected」
+
+代表 Vercel 誤判成 Next.js，請到 **Project Settings → General**：
+
+1. **Framework Preset** 改為 **Other** 或 **Vite**（依上面方式 A / B）
+2. **Root Directory** 確認是 `.` 或 `web`
+3. 到 **Build & Development Settings**，確認 Build Command **不是** `vite build`（除非 Root Directory 是 `web`）
+4. 儲存後 **Redeploy**
 
 或使用 Vercel CLI：
 
