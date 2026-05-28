@@ -15,6 +15,7 @@ export function charPinyin(char: string): string {
 }
 
 export function resolveCharPinyin(term: string, hanIndex: number, char: string): string {
+  if (char === '了') return 'le'
   const override = TERM_PINYIN_OVERRIDES[term]?.[hanIndex]
   if (override) return override
   return charPinyin(char)
