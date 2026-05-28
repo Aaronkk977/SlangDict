@@ -1,4 +1,4 @@
-import { charPinyin } from '../utils/pinyin'
+import { resolveCharPinyin } from '../utils/pinyin'
 
 const CJK = /[\u4e00-\u9fff]/
 
@@ -35,6 +35,7 @@ interface Props {
 
 export function TermWithPinyin({ term }: Props) {
   const segments = segmentTerm(term)
+  let hanIndex = -1
 
   return (
     <h2 className="term term-with-pinyin">
@@ -46,7 +47,8 @@ export function TermWithPinyin({ term }: Props) {
             </span>
           )
         }
-        const py = charPinyin(seg.char)
+        hanIndex += 1
+        const py = resolveCharPinyin(term, hanIndex, seg.char)
         return (
           <span key={i} className="char-unit">
             <span className="char-pinyin">{py || '\u00A0'}</span>
